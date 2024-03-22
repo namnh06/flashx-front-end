@@ -4,11 +4,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Acme Dashboard',
-    default: 'Acme Dashboard',
+    template: '%s | FlashX Dashboard',
+    default: 'FlashX Dashboard',
   },
-  description: 'The official Next.js Course Dashboard, built with App Router.',
-  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+  description:
+    'This is a project in the program Cloud Computing and Blockchain in Saskatchewan Polytech,course name PROJ-611 Adoption of Cloud Computing and Blockchain Technology in the Industry.',
+  metadataBase: new URL('https://namcoi.com'),
 };
 
 export default function RootLayout({
