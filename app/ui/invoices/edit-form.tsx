@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { updateInvoice } from '@/app/lib/actions';
 import { useFormState } from 'react-dom';
+import Image from 'next/image';
 
 export default function EditInvoiceForm({
   invoice,
@@ -129,6 +130,15 @@ export default function EditInvoiceForm({
                   </label>
                 </div>
               </div>
+            </div>
+            <div>
+              <Image
+                src="/invoices/invoice.png"
+                className=""
+                alt={`Invoice image`}
+                width={500}
+                height={600}
+              />
             </div>
 
             <div id="status-error" aria-live="polite" aria-atomic="true">

@@ -10,13 +10,15 @@ const bcrypt = require('bcrypt');
 async function seedUsers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await client.sql`DROP TABLE IF EXISTS users CASCADE;`;
     // Create the "users" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS users (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         email TEXT NOT NULL UNIQUE,
-        password TEXT NOT NULL
+        password TEXT NOT NULL,
+        image_url VARCHAR(255) NOT NULL
       );
     `;
 
@@ -27,8 +29,8 @@ async function seedUsers(client) {
       users.map(async (user) => {
         const hashedPassword = await bcrypt.hash(user.password, 10);
         return client.sql`
-        INSERT INTO users (id, name, email, password)
-        VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
+        INSERT INTO users (id, name, email, password, image_url)
+        VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword}, ${user.image_url})
         ON CONFLICT (id) DO NOTHING;
       `;
       }),
@@ -49,7 +51,7 @@ async function seedUsers(client) {
 async function seedInvoices(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-
+    await client.sql`DROP TABLE IF EXISTS invoices CASCADE;`;
     // Create the "invoices" table if it doesn't exist
     const createTable = await client.sql`
     CREATE TABLE IF NOT EXISTS invoices (
@@ -57,7 +59,8 @@ async function seedInvoices(client) {
     customer_id UUID NOT NULL,
     amount INT NOT NULL,
     status VARCHAR(255) NOT NULL,
-    date DATE NOT NULL
+    date DATE NOT NULL,
+    image_url VARCHAR(255) NOT NULL
   );
 `;
 
@@ -67,8 +70,8 @@ async function seedInvoices(client) {
     const insertedInvoices = await Promise.all(
       invoices.map(
         (invoice) => client.sql`
-        INSERT INTO invoices (customer_id, amount, status, date)
-        VALUES (${invoice.customer_id}, ${invoice.amount}, ${invoice.status}, ${invoice.date})
+        INSERT INTO invoices (customer_id, amount, status, date, image_url)
+        VALUES (${invoice.customer_id}, ${invoice.amount}, ${invoice.status}, ${invoice.date}, ${invoice.image_url})
         ON CONFLICT (id) DO NOTHING;
       `,
       ),
@@ -89,7 +92,7 @@ async function seedInvoices(client) {
 async function seedCustomers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-
+    await client.sql`DROP TABLE IF EXISTS customers CASCADE;`;
     // Create the "customers" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS customers (
@@ -127,6 +130,7 @@ async function seedCustomers(client) {
 
 async function seedRevenue(client) {
   try {
+    await client.sql`DROP TABLE IF EXISTS revenue CASCADE;`;
     // Create the "revenue" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS revenue (

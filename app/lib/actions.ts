@@ -6,6 +6,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import Form from '../ui/invoices/create-form';
 
 const FormSchema = z.object({
     id: z.string(),
@@ -16,6 +17,7 @@ const FormSchema = z.object({
     status: z.enum(['pending','paid'], {
         invalid_type_error: 'Please select an invoice status.'
     }),
+    file: z.instanceof(File),
     date: z.string(),
 });
 
@@ -26,15 +28,18 @@ export type State = {
         customerId?: string[];
         amount?: string[];
         status?: string[];
+        file?: File[];
     };
     message?: string | null;
 }
 
 export async function createInvoice(prevState: State, formData: FormData) {
+    console.log(formData);
     const validatedFields = CreateInvoice.safeParse({
         customerId: formData.get('customerId'),
         amount: formData.get('amount'),
         status: formData.get('status'),
+        file: formData.get('file'),
     });
 
     if(!validatedFields.success) {
@@ -44,9 +49,44 @@ export async function createInvoice(prevState: State, formData: FormData) {
         }
     }
 
-    const { customerId, amount, status } = validatedFields.data;
+    const { customerId, amount, status, file } = validatedFields.data;
     const amountInCents = amount * 100;
     const date = new Date().toISOString().split('T')[0];
+
+    const response = await fetch(
+        process.env.NEXT_PUBLIC_BASE_URL + '/api/upload',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ filename: file.name, contentType: file.type }),
+        },
+      );
+  
+      if (response.ok) {
+        const { url, fields } = await response.json();
+  
+        const formData = new FormData();
+        Object.entries(fields).forEach(([key, value]) => {
+          formData.append(key, value as string);
+        });
+        formData.append('file', file);
+  
+        const uploadResponse = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        });
+  
+        if (uploadResponse.ok) {
+          console.log('Upload successful!');
+        } else {
+          console.error('S3 Upload Error:', uploadResponse);
+          console.error('Upload failed.');
+        }
+      } else {
+        console.log('Failed to get pre-signed URL.');
+      }
 
     try {
         await sql`
