@@ -4,28 +4,28 @@ const users = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
     name: 'Nam Nguyen',
-    email: 'nam@saskpolytech.ca',
+    email: 'nguyen0465@saskpolytech.ca',
     password: 'saskpolytech',
     image_url: '/users/nam-nguyen.png'
   },
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
     name: 'Tai Nguyen',
-    email: 'tai@saskpolytech.ca',
+    email: 'nguyen6169@saskpolytech.ca',
     password: 'saskpolytech',
     image_url: '/users/tai-nguyen.png'
   },
   {
     id: '50ca3e18-62cd-11ee-8c99-0242ac120002',
     name: 'Hieu Nguyen',
-    email: 'hieu@saskpolytech.ca',
+    email: 'nguyen8189@saskpolytech.ca',
     password: 'saskpolytech',
     image_url: '/users/hieu-nguyen.png'
   },
   {
     id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
     name: 'Lanny Mcdonald',
-    email: 'lanny@gmail.com',
+    email: 'lanny_mcdonald@hotmail.com',
     password: 'saskpolytech',
     image_url: '/users/lanny-mcdonald.png'
   },
@@ -35,25 +35,25 @@ const customers = [
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
     name: 'Tai Nguyen',
-    email: 'tai@saskpolytech.ca',
+    email: 'tai_nguyen6169@saskpolytech.ca',
     image_url: '/customers/tai-nguyen.png',
   },
   {
     id: '3958dc9e-742f-4377-85e9-fec4b6a6442a',
     name: 'Hieu Nguyen',
-    email: 'hieu@saskpolytech.ca',
+    email: 'hieu_nguyen8189@saskpolytech.ca',
     image_url: '/customers/hieu-nguyen.png',
   },
   {
     id: '3958dc9e-737f-4377-85e9-fec4b6a6442a',
     name: 'Nam Nguyen',
-    email: 'nam@saskpolytech.ca',
+    email: 'nam_nguyen0465@saskpolytech.ca',
     image_url: '/customers/nam-nguyen.png',
   },
   {
     id: '50ca3e18-62cd-11ee-8c99-0242ac120002',
     name: 'Lanny Mcdonald',
-    email: 'lanny@gmail.com',
+    email: 'lanny_mcdonald@hotmail.com',
     image_url: '/customers/lanny-mcdonald.png',
   },
 ];
@@ -61,14 +61,14 @@ const customers = [
 const invoices = [
   {
     customer_id: customers[0].id,
-    amount: 15795,
+    amount: 1579,
     status: 'pending',
     date: '2024-03-06',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[1].id,
-    amount: 20348,
+    amount: 2034,
     status: 'pending',
     date: '2024-03-14',
     image_url: '/invoices/invoice.png'
@@ -82,42 +82,42 @@ const invoices = [
   },
   {
     customer_id: customers[2].id,
-    amount: 44800,
+    amount: 4480,
     status: 'paid',
     date: '2024-02-10',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[1].id,
-    amount: 34577,
+    amount: 3457,
     status: 'pending',
     date: '2024-03-05',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
-    amount: 54246,
+    amount: 5424,
     status: 'pending',
     date: '2024-02-16',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[3].id,
-    amount: 666,
+    amount: 10258,
     status: 'pending',
     date: '2024-02-27',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[3].id,
-    amount: 32545,
+    amount: 12545,
     status: 'paid',
     date: '2024-03-09',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[0].id,
-    amount: 1250,
+    amount: 4250,
     status: 'paid',
     date: '2024-02-17',
     image_url: '/invoices/invoice.png'
@@ -131,7 +131,7 @@ const invoices = [
   },
   {
     customer_id: customers[2].id,
-    amount: 500,
+    amount: 5059,
     status: 'paid',
     date: '2024-02-19',
     image_url: '/invoices/invoice.png'
@@ -145,21 +145,21 @@ const invoices = [
   },
   {
     customer_id: customers[2].id,
-    amount: 8945,
+    amount: 8135,
     status: 'paid',
     date: '2024-03-18',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[0].id,
-    amount: 8945,
+    amount: 4925,
     status: 'paid',
     date: '2024-02-04',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
-    amount: 1000,
+    amount: 10304,
     status: 'paid',
     date: '2024-02-05',
     image_url: '/invoices/invoice.png'

@@ -34,7 +34,6 @@ export type State = {
 }
 
 export async function createInvoice(prevState: State, formData: FormData) {
-    console.log(formData);
     const validatedFields = CreateInvoice.safeParse({
         customerId: formData.get('customerId'),
         amount: formData.get('amount'),
@@ -43,8 +42,12 @@ export async function createInvoice(prevState: State, formData: FormData) {
     });
 
     if(!validatedFields.success) {
+        const fieldErrors = validatedFields.error.flatten().fieldErrors;
         return {
-            errors: validatedFields.error.flatten().fieldErrors,
+            errors: {
+                ...fieldErrors,
+                file: fieldErrors.file ? fieldErrors.file.map(filename => new File([], filename)) : undefined,
+            },
             message: 'Missing Fields. Failed to Create Invoice',
         }
     }
@@ -114,17 +117,57 @@ export async function updateInvoice(
         customerId: formData.get('customerId'),
         amount: formData.get('amount'),
         status: formData.get('status'),
+        file: formData.get('file'),
     });
 
     if(!validatedFields.success) {
+        const fieldErrors = validatedFields.error.flatten().fieldErrors;
         return {
-            errors: validatedFields.error.flatten().fieldErrors,
-            message: 'Missing Fields. Failed to Update Invoice.'
+            errors: {
+                ...fieldErrors,
+                file: fieldErrors.file ? fieldErrors.file.map(filename => new File([], filename)) : undefined,
+            },
+            message: 'Missing Fields. Failed to Create Invoice',
         }
     }
 
-    const { customerId, amount, status } = validatedFields.data;
+    const { customerId, amount, status, file } = validatedFields.data;
     const amountInCents = amount * 100;
+
+    const response = await fetch(
+        process.env.NEXT_PUBLIC_BASE_URL + '/api/upload',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ filename: file.name, contentType: file.type }),
+        },
+      );
+  
+      if (response.ok) {
+        const { url, fields } = await response.json();
+  
+        const formData = new FormData();
+        Object.entries(fields).forEach(([key, value]) => {
+          formData.append(key, value as string);
+        });
+        formData.append('file', file);
+  
+        const uploadResponse = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        });
+  
+        if (uploadResponse.ok) {
+          console.log('Upload successful!');
+        } else {
+          console.error('S3 Upload Error:', uploadResponse);
+          console.error('Upload failed.');
+        }
+      } else {
+        console.log('Failed to get pre-signed URL.');
+      }
 
     try {
         await sql`

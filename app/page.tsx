@@ -7,39 +7,34 @@ import { FlashXLogo } from '@/app/ui/flashx-logo';
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-36">
+      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-20">
         <FlashXLogo />
       </div>
       <div className="mt-2 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <BoltIcon className="h-12 w-12 rotate-[15deg]" />
+        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-3/6 md:px-20">
           <p
             className={`${lusitana.className} text-xl text-gray-800 antialiased md:text-3xl md:leading-normal`}
           >
-            <strong>Welcome to Flash - Local Express.</strong>{' '}
+            <strong>Welcome to FlashYXE - Local Express!</strong>{' '}
           </p>
           <p
             className={`${lusitana.className} text-xl text-gray-800 antialiased md:text-3xl md:leading-normal`}
           >
-            This is a project in the program{' '}
+            Part of{' '}
             <a
               href="https://saskpolytech.ca/programs-and-courses/programs/Cloud-Computing-and-Blockchain.aspx"
               className="text-blue-500"
             >
-              Cloud Computing and Blockchain in Saskatchewan Polytech,
-            </a>
-            course name{' '}
-            <span className="underline">
-              PROJ-611 Adoption of Cloud Computing and Blockchain Technology in
-              the Industry,
-            </span>{' '}
-            instructed by{' '}
+              Saskatchewan Polytechnic's Cloud Computing and Blockchain
+            </a>{' '}
+            program, our project, led by instructor{' '}
             <a
               href="https://www.linkedin.com/in/amatistasama/"
-              className="font-black uppercase text-blue-500"
+              className="font-black text-blue-500"
             >
               Mayra Samaniego MSc. Ph.D. (c)
             </a>{' '}
+            , is here to revolutionize.
           </p>
           <p
             className={`${lusitana.className} antialiased md:text-xl md:leading-normal`}
@@ -60,7 +55,7 @@ export default function Page() {
             <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+        <div className="flex items-center justify-center p-6 md:w-3/6 md:px-28 md:py-12">
           <Image
             src="/flashx-desktop.png"
             width={1000}
