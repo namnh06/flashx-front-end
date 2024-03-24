@@ -4,11 +4,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | FlashX Dashboard',
-    default: 'FlashX Dashboard',
+    template: '%s | FlashYXE Dashboard',
+    default: 'FlashYXE Dashboard',
   },
   description:
-    'This is a project in the program Cloud Computing and Blockchain in Saskatchewan Polytech,course name PROJ-611 Adoption of Cloud Computing and Blockchain Technology in the Industry.',
+    'Part of Saskatchewan Polytechnic’s Cloud Computing and Blockchain program, our project, led by instructor Mayra Samaniego MSc. Ph.D. (c) , is here to revolutionize.',
   metadataBase: new URL('https://namcoi.com'),
 };
 

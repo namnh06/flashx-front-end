@@ -25,7 +25,7 @@ export default function Page() {
               href="https://saskpolytech.ca/programs-and-courses/programs/Cloud-Computing-and-Blockchain.aspx"
               className="text-blue-500"
             >
-              Saskatchewan Polytechnic's Cloud Computing and Blockchain
+              Saskatchewan Polytechnic&rsquo;s Cloud Computing and Blockchain
             </a>{' '}
             program, our project, led by instructor{' '}
             <a
