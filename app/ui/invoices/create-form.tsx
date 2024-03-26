@@ -70,25 +70,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div className="rounded-md bg-gray-50 p-4 md:p-6">
-          <input
-            id="file"
-            type="file"
-            onChange={(e) => {
-              const files = e.target.files;
-              if (files) {
-                setFile(files[0]);
-              }
-            }}
-            accept="image/png, image/jpeg"
-          />
-          <button type="submit" disabled={uploading}>
-            Upload
-          </button>
-        </div>
-      </form>
-
       <form action={dispatch}>
         <div className="rounded-md bg-gray-50 p-4 md:p-6">
           {/* Customer Name */}
@@ -158,9 +139,9 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           </div>
 
           {/* Invoice Status */}
-          <fieldset>
+          <fieldset className="mb-4">
             <legend className="mb-2 block text-sm font-medium">
-              Set the invoice status
+              Set the delivery status
             </legend>
             <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
               <div className="flex gap-4">
@@ -206,19 +187,33 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             </div>
           </fieldset>
 
-          <input
-            className="mt-6"
-            id="file"
-            name="file"
-            type="file"
-            onChange={(e) => {
-              const files = e.target.files;
-              if (files) {
-                setFile(files[0]);
-              }
-            }}
-            accept="image/png, image/jpeg"
-          />
+          <div className="">
+            <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+              Upload invoice file
+            </label>
+            <div className="relative mt-2 rounded-md">
+              <div className="relative">
+                <input
+                  className="text-sm text-stone-500
+                  file:mr-5 file:border-[1px] file:bg-stone-50 file:px-3
+                  file:py-1 file:text-xs
+                  file:font-medium file:text-stone-700
+                  hover:file:cursor-pointer hover:file:bg-blue-50
+                  hover:file:text-blue-700"
+                  id="file"
+                  name="file"
+                  type="file"
+                  onChange={(e) => {
+                    const files = e.target.files;
+                    if (files) {
+                      setFile(files[0]);
+                    }
+                  }}
+                  accept="image/png, image/jpeg"
+                />
+              </div>
+            </div>
+          </div>
 
           <div aria-live="polite" aria-atomic="true">
             {state.message ? (
