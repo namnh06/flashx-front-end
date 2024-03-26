@@ -93,8 +93,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
 
     try {
         await sql`
-        INSERT INTO invoices (customer_id, amount, status, date)
-        VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+        INSERT INTO invoices (customer_id, amount, status, date, image_url)
+        VALUES (${customerId}, ${amountInCents}, ${status}, ${date}, ${file.name})
         `;
     } catch (error) {
         return {

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   CheckIcon,
   ClockIcon,
+  TruckIcon,
   CurrencyDollarIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
@@ -17,57 +18,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
 
-  const [file, setFile] = useState<File | null>(null);
-  const [uploading, setUploading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!file) {
-      alert('Please select a file to upload.');
-      return;
-    }
-
-    setUploading(true);
-
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_BASE_URL + '/api/upload',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ filename: file.name, contentType: file.type }),
-      },
-    );
-
-    if (response.ok) {
-      const { url, fields } = await response.json();
-
-      const formData = new FormData();
-      Object.entries(fields).forEach(([key, value]) => {
-        formData.append(key, value as string);
-      });
-      formData.append('file', file);
-
-      const uploadResponse = await fetch(url, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (uploadResponse.ok) {
-        alert('Upload successful!');
-      } else {
-        console.error('S3 Upload Error:', uploadResponse);
-        alert('Upload failed.');
-      }
-    } else {
-      alert('Failed to get pre-signed URL.');
-    }
-
-    setUploading(false);
-  };
-
   return (
     <div>
       <form action={dispatch}>
@@ -78,7 +28,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
               htmlFor="customer"
               className="mb-2 block text-sm font-medium"
             >
-              Choose customer
+              Choose courier
             </label>
             <div className="relative">
               <select
@@ -152,12 +102,28 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                     type="radio"
                     value="pending"
                     className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                    defaultChecked={true}
                   />
                   <label
                     htmlFor="pending"
                     className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
                   >
                     Pending <ClockIcon className="h-4 w-4" />
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    id="delivery"
+                    name="status"
+                    type="radio"
+                    value="delivery"
+                    className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                  />
+                  <label
+                    htmlFor="delivery"
+                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 bg-yellow-500 px-3 py-1.5 text-xs font-medium text-gray-600"
+                  >
+                    Delivering <TruckIcon className="h-4 w-4" />
                   </label>
                 </div>
                 <div className="flex items-center">
@@ -205,9 +171,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   type="file"
                   onChange={(e) => {
                     const files = e.target.files;
-                    if (files) {
-                      setFile(files[0]);
-                    }
                   }}
                   accept="image/png, image/jpeg"
                 />
@@ -228,7 +191,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           >
             Cancel
           </Link>
-          <Button type="submit">Create Invoice</Button>
+          <Button type="submit">Create Delivery</Button>
         </div>
       </form>
     </div>

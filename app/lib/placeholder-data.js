@@ -29,6 +29,13 @@ const users = [
     password: 'saskpolytech',
     image_url: '/users/lanny-mcdonald.png'
   },
+  {
+    id: '96d63c27-f384-14a2-ac29-586638f7c2f2',
+    name: 'Thien',
+    email: 'admin@thienvietnam.com',
+    password: 'saskpolytech',
+    image_url: '/users/nam-nguyen.png'
+  }
 ];
 
 const customers = [
@@ -59,6 +66,13 @@ const customers = [
 ];
 
 const invoices = [
+  {
+    customer_id: customers[0].id,
+    amount: 108,
+    status: 'pending',
+    date: '2024-03-06',
+    image_url: '/invoices/invoice.png'
+  },
   {
     customer_id: customers[0].id,
     amount: 1579,
@@ -164,21 +178,28 @@ const invoices = [
     date: '2024-02-05',
     image_url: '/invoices/invoice.png'
   },
+  {
+    customer_id: customers[1].id,
+    amount: 205,
+    status: 'paid',
+    date: '2024-04-01',
+    image_url: '/invoices/invoice.png'
+  },
 ];
 
 const revenue = [
-  { month: 'Jan', revenue: 2000 },
+  { month: 'Jan', revenue: 108 },
   { month: 'Feb', revenue: 1800 },
   { month: 'Mar', revenue: 2200 },
-  { month: 'Apr', revenue: 2500 },
-  { month: 'May', revenue: 2300 },
-  { month: 'Jun', revenue: 3200 },
-  { month: 'Jul', revenue: 3500 },
-  { month: 'Aug', revenue: 3700 },
-  { month: 'Sep', revenue: 2500 },
-  { month: 'Oct', revenue: 2800 },
-  { month: 'Nov', revenue: 3000 },
-  { month: 'Dec', revenue: 4800 },
+  { month: 'Apr', revenue: 205 },
+  // { month: 'May', revenue: 2300 },
+  // { month: 'Jun', revenue: 3200 },
+  // { month: 'Jul', revenue: 3500 },
+  // { month: 'Aug', revenue: 3700 },
+  // { month: 'Sep', revenue: 2500 },
+  // { month: 'Oct', revenue: 2800 },
+  // { month: 'Nov', revenue: 3000 },
+  // { month: 'Dec', revenue: 4800 },
 ];
 
 module.exports = {
