@@ -176,6 +176,50 @@ export default function EditInvoiceForm({
               />
             </div>
 
+            <div className="mt-4">
+              <label
+                htmlFor="amount"
+                className="mb-2 block text-sm font-medium"
+              >
+                Evidence file
+              </label>
+              <Image
+                src="/invoices/invoice.png"
+                className=""
+                alt={`Invoice image`}
+                width={200}
+                height={200}
+              />
+            </div>
+
+            <div className="mt-4">
+              <label
+                htmlFor="amount"
+                className="mb-2 block text-sm font-medium"
+              >
+                Upload evidence file
+              </label>
+              <div className="relative mt-2 rounded-md">
+                <div className="relative">
+                  <input
+                    className="text-sm text-stone-500
+                  file:mr-5 file:border-[1px] file:bg-stone-50 file:px-3
+                  file:py-1 file:text-xs
+                  file:font-medium file:text-stone-700
+                  hover:file:cursor-pointer hover:file:bg-blue-50
+                  hover:file:text-blue-700"
+                    id="file"
+                    name="file"
+                    type="file"
+                    onChange={(e) => {
+                      const files = e.target.files;
+                    }}
+                    accept="image/png, image/jpeg"
+                  />
+                </div>
+              </div>
+            </div>
+
             <div id="status-error" aria-live="polite" aria-atomic="true">
               {state.errors?.status &&
                 state.errors.status.map((error: string) => (
@@ -185,31 +229,6 @@ export default function EditInvoiceForm({
                 ))}
             </div>
           </fieldset>
-
-          <div className="mt-4">
-            <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-              Upload evidence file
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  className="text-sm text-stone-500
-                  file:mr-5 file:border-[1px] file:bg-stone-50 file:px-3
-                  file:py-1 file:text-xs
-                  file:font-medium file:text-stone-700
-                  hover:file:cursor-pointer hover:file:bg-blue-50
-                  hover:file:text-blue-700"
-                  id="file"
-                  name="file"
-                  type="file"
-                  onChange={(e) => {
-                    const files = e.target.files;
-                  }}
-                  accept="image/png, image/jpeg"
-                />
-              </div>
-            </div>
-          </div>
 
           <div aria-live="polite" aria-atomic="true">
             {state.message ? (

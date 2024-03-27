@@ -19,7 +19,7 @@ const links = [
     href: '/dashboard/invoices',
     icon: BuildingStorefrontIcon,
   },
-  // { name: 'Analytics', href: '/dashboard/analytics', icon: ChartBarIcon },
+  { name: 'Analytics', href: '/dashboard/analytics', icon: ChartBarIcon },
   { name: 'Settings', href: '/dashboard/settings', icon: Cog6ToothIcon },
 ];
 

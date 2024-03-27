@@ -25,7 +25,7 @@ const users = [
   {
     id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
     name: 'Lanny Mcdonald',
-    email: 'lanny_mcdonald@hotmail.com',
+    email: 'lanny@hotmail.com',
     password: 'saskpolytech',
     image_url: '/users/lanny-mcdonald.png'
   },
