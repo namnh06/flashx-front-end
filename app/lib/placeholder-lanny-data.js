@@ -67,49 +67,14 @@ const customers = [
 
 const invoices = [
   {
-    customer_id: customers[0].id,
-    amount: 108,
-    status: 'waiting',
-    date: '2024-03-06',
-    image_url: '/invoices/invoice.png'
-  },
-  {
-    customer_id: customers[0].id,
-    amount: 1579,
-    status: 'waiting',
-    date: '2024-03-06',
-    image_url: '/invoices/invoice.png'
-  },
-  {
-    customer_id: customers[1].id,
-    amount: 2034,
-    status: 'waiting',
-    date: '2024-03-14',
-    image_url: '/invoices/invoice.png'
-  },
-  {
     customer_id: customers[3].id,
-    amount: 3040,
-    status: 'completed',
-    date: '2024-02-29',
-    image_url: '/invoices/invoice.png'
-  },
-  {
-    customer_id: customers[2].id,
-    amount: 4480,
-    status: 'completed',
-    date: '2024-02-10',
-    image_url: '/invoices/invoice.png'
-  },
-  {
-    customer_id: customers[1].id,
     amount: 3457,
     status: 'waiting',
     date: '2024-03-05',
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[2].id,
+    customer_id: customers[3].id,
     amount: 5424,
     status: 'waiting',
     date: '2024-02-16',
@@ -130,7 +95,7 @@ const invoices = [
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[0].id,
+    customer_id: customers[3].id,
     amount: 4250,
     status: 'completed',
     date: '2024-02-17',
@@ -144,21 +109,21 @@ const invoices = [
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[2].id,
+    customer_id: customers[3].id,
     amount: 5059,
     status: 'completed',
     date: '2024-02-19',
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[1].id,
+    customer_id: customers[3].id,
     amount: 8945,
     status: 'completed',
     date: '2024-02-03',
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[2].id,
+    customer_id: customers[3].id,
     amount: 8135,
     status: 'completed',
     date: '2024-03-24',
@@ -172,33 +137,40 @@ const invoices = [
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[0].id,
+    customer_id: customers[3].id,
     amount: 10304,
     status: 'cancelled',
     date: '2024-03-25',
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[1].id,
+    customer_id: customers[3].id,
     amount: 20500,
     status: 'completed',
     date: '2024-03-25',
     image_url: '/invoices/invoice.png'
   },
   {
-    customer_id: customers[2].id,
+    customer_id: customers[3].id,
     amount: 13500,
     status: 'waiting',
     date: '2024-03-25',
     image_url: '/invoices/invoice.png'
   },
+  {
+    customer_id: customers[3].id,
+    amount: 6259,
+    status: 'waiting',
+    date: '2024-03-27',
+    image_url: '/invoices/invoice.png'
+  },
 ];
 
 const revenue = [
-  { month: 'Jan', revenue: 108 },
-  { month: 'Feb', revenue: 1800 },
-  { month: 'Mar', revenue: 2200 },
-  { month: 'Apr', revenue: 205 },
+  { month: 'Jan', revenue: 80 },
+  { month: 'Feb', revenue: 300 },
+  { month: 'Mar', revenue: 400 },
+  // { month: 'Apr', revenue: 150 },
   // { month: 'May', revenue: 2300 },
   // { month: 'Jun', revenue: 3200 },
   // { month: 'Jul', revenue: 3500 },

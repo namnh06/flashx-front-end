@@ -37,7 +37,7 @@ export default function EditInvoiceForm({
             <select
               id="customer"
               name="customerId"
-              className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              className="peer block w-full cursor-pointer rounded-md border border-gray-200 bg-stone-400 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               defaultValue={invoice.customer_id}
               aria-describedby="customer-error"
             >
@@ -77,8 +77,9 @@ export default function EditInvoiceForm({
                 step="0.01"
                 defaultValue={invoice.amount}
                 placeholder="Enter USD amount"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 bg-stone-400 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="amount-error"
+                readOnly={true}
               />
               <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
@@ -93,7 +94,7 @@ export default function EditInvoiceForm({
           </div>
 
           {/* Invoice Status */}
-          <fieldset>
+          <fieldset className="mt-4">
             <legend className="mb-2 block text-sm font-medium">
               Set the invoice status
             </legend>
@@ -170,8 +171,8 @@ export default function EditInvoiceForm({
                 src="/invoices/invoice.png"
                 className=""
                 alt={`Invoice image`}
-                width={500}
-                height={600}
+                width={200}
+                height={200}
               />
             </div>
 
@@ -184,6 +185,31 @@ export default function EditInvoiceForm({
                 ))}
             </div>
           </fieldset>
+
+          <div className="mt-4">
+            <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+              Upload evidence file
+            </label>
+            <div className="relative mt-2 rounded-md">
+              <div className="relative">
+                <input
+                  className="text-sm text-stone-500
+                  file:mr-5 file:border-[1px] file:bg-stone-50 file:px-3
+                  file:py-1 file:text-xs
+                  file:font-medium file:text-stone-700
+                  hover:file:cursor-pointer hover:file:bg-blue-50
+                  hover:file:text-blue-700"
+                  id="file"
+                  name="file"
+                  type="file"
+                  onChange={(e) => {
+                    const files = e.target.files;
+                  }}
+                  accept="image/png, image/jpeg"
+                />
+              </div>
+            </div>
+          </div>
 
           <div aria-live="polite" aria-atomic="true">
             {state.message ? (

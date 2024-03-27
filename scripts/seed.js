@@ -4,7 +4,7 @@ const {
   customers,
   revenue,
   users,
-} = require('../app/lib/placeholder-data.js');
+} = require('../app/lib/placeholder-lanny-data.js');
 const bcrypt = require('bcrypt');
 
 async function seedUsers(client) {
@@ -60,7 +60,8 @@ async function seedInvoices(client) {
     amount INT NOT NULL,
     status VARCHAR(255) NOT NULL,
     date DATE NOT NULL,
-    image_url VARCHAR(255) NOT NULL
+    image_url VARCHAR(255) NOT NULL,
+    evidence_image_url VARCHAR(255)
   );
 `;
 
