@@ -168,14 +168,14 @@ const invoices = [
     customer_id: customers[0].id,
     amount: 4925,
     status: 'completed',
-    date: '2024-02-04',
+    date: '2024-03-24',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
     amount: 10304,
-    status: 'completed',
-    date: '2024-02-05',
+    status: 'cancelled',
+    date: '2024-03-25',
     image_url: '/invoices/invoice.png'
   },
   {
@@ -183,6 +183,13 @@ const invoices = [
     amount: 20500,
     status: 'completed',
     date: '2024-04-01',
+    image_url: '/invoices/invoice.png'
+  },
+  {
+    customer_id: customers[2].id,
+    amount: 13500,
+    status: 'waiting',
+    date: Date.now(),
     image_url: '/invoices/invoice.png'
   },
 ];

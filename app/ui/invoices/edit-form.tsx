@@ -7,6 +7,7 @@ import {
   TruckIcon,
   CurrencyDollarIcon,
   UserCircleIcon,
+  XMarkIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
@@ -97,7 +98,7 @@ export default function EditInvoiceForm({
               Set the invoice status
             </legend>
             <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
-              <div className="flex flex-wrap gap-4 md:flex-nowrap">
+              <div className="flex flex-col gap-4 md:flex-row">
                 <div className="flex items-center">
                   <input
                     id="waiting"
@@ -127,7 +128,7 @@ export default function EditInvoiceForm({
                     htmlFor="delivering"
                     className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 bg-yellow-500 px-3 py-1.5 text-xs font-medium text-gray-600"
                   >
-                    Deliverying <TruckIcon className="h-4 w-4" />
+                    Delivering <TruckIcon className="h-4 w-4" />
                   </label>
                 </div>
                 <div className="flex items-center">
@@ -159,7 +160,7 @@ export default function EditInvoiceForm({
                     htmlFor="cancelled"
                     className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-red-500 px-3 py-1.5 text-xs font-medium text-white"
                   >
-                    Cancelled <CheckIcon className="h-4 w-4" />
+                    Cancelled <XMarkIcon className="h-4 w-4" />
                   </label>
                 </div>
               </div>

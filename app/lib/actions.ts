@@ -14,7 +14,7 @@ const FormSchema = z.object({
         invalid_type_error: 'Please select a customer.'
     }),
     amount: z.coerce.number().gt(0, { message: 'Please enter an amount greater than $0.'}),
-    status: z.enum(['pending','paid'], {
+    status: z.enum(['waiting', 'delivering', 'completed', 'cancelled'], {
         invalid_type_error: 'Please select an invoice status.'
     }),
     file: z.instanceof(File),
@@ -131,43 +131,8 @@ export async function updateInvoice(
         }
     }
 
-    const { customerId, amount, status, file } = validatedFields.data;
+    const { customerId, amount, status } = validatedFields.data;
     const amountInCents = amount * 100;
-
-    const response = await fetch(
-        process.env.NEXT_PUBLIC_BASE_URL + '/api/upload',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ filename: file.name, contentType: file.type }),
-        },
-      );
-  
-      if (response.ok) {
-        const { url, fields } = await response.json();
-  
-        const formData = new FormData();
-        Object.entries(fields).forEach(([key, value]) => {
-          formData.append(key, value as string);
-        });
-        formData.append('file', file);
-  
-        const uploadResponse = await fetch(url, {
-          method: 'POST',
-          body: formData,
-        });
-  
-        if (uploadResponse.ok) {
-          console.log('Upload successful!');
-        } else {
-          console.error('S3 Upload Error:', uploadResponse);
-          console.error('Upload failed.');
-        }
-      } else {
-        console.log('Failed to get pre-signed URL.');
-      }
 
     try {
         await sql`
