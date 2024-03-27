@@ -11,7 +11,7 @@ import Form from '../ui/invoices/create-form';
 const FormSchema = z.object({
     id: z.string(),
     customerId: z.string({
-        invalid_type_error: 'Please select a customer.'
+        invalid_type_error: 'Please select a courier.'
     }),
     amount: z.coerce.number().gt(0, { message: 'Please enter an amount greater than $0.'}),
     status: z.enum(['waiting', 'delivering', 'completed', 'cancelled'], {

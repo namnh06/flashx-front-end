@@ -42,7 +42,7 @@ export default function EditInvoiceForm({
               aria-describedby="customer-error"
             >
               <option value="" disabled>
-                Select a customer
+                Select a courier
               </option>
               {customers.map((customer) => (
                 <option key={customer.id} value={customer.id}>

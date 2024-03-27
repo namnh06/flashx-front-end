@@ -161,18 +161,18 @@ const invoices = [
     customer_id: customers[2].id,
     amount: 8135,
     status: 'completed',
-    date: '2024-03-18',
+    date: '2024-03-25',
+    image_url: '/invoices/invoice.png'
+  },
+  {
+    customer_id: customers[3].id,
+    amount: 4925,
+    status: 'completed',
+    date: '2024-03-25',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[0].id,
-    amount: 4925,
-    status: 'completed',
-    date: '2024-03-24',
-    image_url: '/invoices/invoice.png'
-  },
-  {
-    customer_id: customers[2].id,
     amount: 10304,
     status: 'cancelled',
     date: '2024-03-25',
@@ -182,14 +182,14 @@ const invoices = [
     customer_id: customers[1].id,
     amount: 20500,
     status: 'completed',
-    date: '2024-04-01',
+    date: '2024-03-25',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
     amount: 13500,
     status: 'waiting',
-    date: Date.now(),
+    date: formatDate(new Date()),
     image_url: '/invoices/invoice.png'
   },
 ];
@@ -208,6 +208,13 @@ const revenue = [
   // { month: 'Nov', revenue: 3000 },
   // { month: 'Dec', revenue: 4800 },
 ];
+
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
 
 module.exports = {
   users,
