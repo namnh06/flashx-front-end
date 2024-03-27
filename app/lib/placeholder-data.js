@@ -161,7 +161,7 @@ const invoices = [
     customer_id: customers[2].id,
     amount: 8135,
     status: 'completed',
-    date: '2024-03-25',
+    date: '2024-03-24',
     image_url: '/invoices/invoice.png'
   },
   {
