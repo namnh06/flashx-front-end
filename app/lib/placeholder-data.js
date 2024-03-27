@@ -69,119 +69,119 @@ const invoices = [
   {
     customer_id: customers[0].id,
     amount: 108,
-    status: 'pending',
+    status: 'waiting',
     date: '2024-03-06',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[0].id,
     amount: 1579,
-    status: 'pending',
+    status: 'waiting',
     date: '2024-03-06',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[1].id,
     amount: 2034,
-    status: 'pending',
+    status: 'waiting',
     date: '2024-03-14',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[3].id,
     amount: 3040,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-29',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
     amount: 4480,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-10',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[1].id,
     amount: 3457,
-    status: 'pending',
+    status: 'waiting',
     date: '2024-03-05',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
     amount: 5424,
-    status: 'pending',
+    status: 'waiting',
     date: '2024-02-16',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[3].id,
     amount: 10258,
-    status: 'pending',
+    status: 'waiting',
     date: '2024-02-27',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[3].id,
     amount: 12545,
-    status: 'paid',
+    status: 'completed',
     date: '2024-03-09',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[0].id,
     amount: 4250,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-17',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[3].id,
     amount: 8546,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-07',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
     amount: 5059,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-19',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[1].id,
     amount: 8945,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-03',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
     amount: 8135,
-    status: 'paid',
+    status: 'completed',
     date: '2024-03-18',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[0].id,
     amount: 4925,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-04',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[2].id,
     amount: 10304,
-    status: 'paid',
+    status: 'completed',
     date: '2024-02-05',
     image_url: '/invoices/invoice.png'
   },
   {
     customer_id: customers[1].id,
-    amount: 205,
-    status: 'paid',
+    amount: 20500,
+    status: 'completed',
     date: '2024-04-01',
     image_url: '/invoices/invoice.png'
   },

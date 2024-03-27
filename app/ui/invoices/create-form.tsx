@@ -94,33 +94,33 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
               Set the delivery status
             </legend>
             <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4 md:flex-nowrap">
                 <div className="flex items-center">
                   <input
-                    id="pending"
+                    id="waiting"
                     name="status"
                     type="radio"
-                    value="pending"
+                    value="waiting"
                     className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                     defaultChecked={true}
                   />
                   <label
-                    htmlFor="pending"
+                    htmlFor="waiting"
                     className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
                   >
-                    Pending <ClockIcon className="h-4 w-4" />
+                    Waiting <ClockIcon className="h-4 w-4" />
                   </label>
                 </div>
                 <div className="flex items-center">
                   <input
-                    id="delivery"
+                    id="delivering"
                     name="status"
                     type="radio"
-                    value="delivery"
+                    value="delivering"
                     className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   />
                   <label
-                    htmlFor="delivery"
+                    htmlFor="delivering"
                     className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 bg-yellow-500 px-3 py-1.5 text-xs font-medium text-gray-600"
                   >
                     Delivering <TruckIcon className="h-4 w-4" />
@@ -128,17 +128,32 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 </div>
                 <div className="flex items-center">
                   <input
-                    id="paid"
+                    id="Completed"
                     name="status"
                     type="radio"
-                    value="paid"
+                    value="Completed"
                     className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   />
                   <label
-                    htmlFor="paid"
+                    htmlFor="Completed"
                     className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
                   >
-                    Paid <CheckIcon className="h-4 w-4" />
+                    Completed <CheckIcon className="h-4 w-4" />
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    id="cancelled"
+                    name="status"
+                    type="radio"
+                    value="cancelled"
+                    className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                  />
+                  <label
+                    htmlFor="cancelled"
+                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-red-500 px-3 py-1.5 text-xs font-medium text-white"
+                  >
+                    Cancelled <CheckIcon className="h-4 w-4" />
                   </label>
                 </div>
               </div>
