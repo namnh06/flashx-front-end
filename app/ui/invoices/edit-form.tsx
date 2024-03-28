@@ -176,7 +176,7 @@ export default function EditInvoiceForm({
               />
             </div>
 
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <label
                 htmlFor="amount"
                 className="mb-2 block text-sm font-medium"
@@ -184,13 +184,13 @@ export default function EditInvoiceForm({
                 Evidence file
               </label>
               <Image
-                src="/invoices/invoice.png"
+                src="/invoices/hieu-evidence.png"
                 className=""
-                alt={`Invoice image`}
+                alt={`Evidence image`}
                 width={200}
                 height={200}
               />
-            </div>
+            </div> */}
 
             <div className="mt-4">
               <label
